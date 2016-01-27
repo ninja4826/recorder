@@ -75,7 +75,13 @@ class WebcamTest extends JFrame implements Runnable,
 		
 		setVisible true
 		
-		Thread t = { panel.start() }
+//		Thread t = { panel.start() }
+		Thread t = new Thread() {
+			@Override
+			public void run() {
+				panel.start()
+			}
+		}
 		
 		t.setName "example-starter"
 		t.setDaemon true
@@ -166,7 +172,13 @@ class WebcamTest extends JFrame implements Runnable,
 				
 				add panel, BorderLayout.CENTER
 				pack()
-				Thread t = { panel.start() }
+//				Thread t = { panel.start() }
+				Thread t = new Thread() {
+					@Override
+					public void run() {
+						panel.start()
+					}
+				}
 				
 				t.setName "example-stopper"
 				t.setDaemon true
